@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cari PBB</title>
+
+<style>
+body{
+  margin:0;
+  font-family:'Segoe UI';
+  background:url('bg.jpg') center/cover fixed;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* overlay */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+}
+
+/* NAVBAR */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  padding:15px 20px;
+  color:#fff;
+  position:relative;
+  z-index:2;
+}
+
+.menu a{
+  color:#fff;
+  text-decoration:none;
+  margin-left:15px;
+}
+
+.active{
+  border-bottom:2px solid #fff;
+}
+
+/* LOGO */
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:bold;
+}
+
+.logo img{
+  height:30px;
+  width:auto;
+}
+
+/* CARD */
+.card{
+  margin:80px auto 20px;
+  background:rgba(0,0,0,0.7);
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+  width:90%;
+  max-width:400px;
+  color:#fff;
+  position:relative;
+  z-index:2;
+}
+
+.card input{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:none;
+  font-size:16px;
+}
+
+/* HASIL */
+#hasil{
+  max-width:500px;
+  margin:20px auto;
+  position:relative;
+  z-index:2;
+}
+
+.item{
+  background:#fff;
+  margin:10px;
+  padding:12px;
+  border-radius:10px;
+  font-size:14px;
+  cursor:pointer;
+}
+
+/* POPUP */
+#popup{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+  z-index:999;
+  align-items:center;
+  justify-content:center;
+}
+
+#popupContent{
+  background:#fff;
+  padding:20px;
+  border-radius:15px;
+  width:90%;
+  max-width:400px;
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  color:#fff;
+  margin:30px 0;
+  position:relative;
+  z-index:2;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .navbar{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="navbar">
+  <div class="logo">
+    <img src="logo.png" alt="logo">
+    <span>Urang Sukabumi Asli</span>
+  </div>
+  <div class="menu">
+    <a href="index.html">Home</a>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Cari NOP / Nama</h2>
+  <input id="search" onkeyup="cariData()" placeholder="ketik minimal 2 huruf">
+</div>
+
+<div id="hasil">Memuat data...</div>
+
+<div id="popup">
+  <div id="popupContent"></div>
+</div>
+
+<!-- SCRIPT UTAMA -->
+<script>
+let dataSheet = [];
+let timer;
+
+fetch("https://docs.google.com/spreadsheets/d/1oUk_vvF9Qh_1095_G0dUh_5cUq0fM-sRvgIRi_gVm5s/gviz/tq?tqx=out:json&gid=1995863867")
+.then(res=>res.text())
+.then(text=>{
+  const json = JSON.parse(text.substring(text.indexOf("{"), text.lastIndexOf("}")+1));
+  const rows = json.table.rows.slice(1);
+
+  dataSheet = rows.map(r=>({
+    nop:(r.c[0]?.v||"")+"",
+    nama:(r.c[1]?.v||"")+"",
+    alamat:(r.c[2]?.v||"")+"",
+    luas:(r.c[3]?.v||"")+""
+  }));
+
+  document.getElementById("hasil").innerHTML="Data siap 🔍";
+});
+
+function cariData(){
+  clearTimeout(timer);
+
+  timer=setTimeout(()=>{
+    const input=document.getElementById("search").value.toLowerCase().trim();
+
+    if(input.length<2){
+      hasil.innerHTML="";
+      return;
+    }
+
+    const data=dataSheet.filter(d=>
+      d.nama.toLowerCase().includes(input) ||
+      d.nop.toLowerCase().includes(input)
+    ).slice(0,20);
+
+    tampil(data);
+
+  },300);
+}
+
+function tampil(data){
+  if(data.length==0){
+    hasil.innerHTML="Tidak ditemukan";
+    return;
+  }
+
+  let html="";
+  data.forEach((d,i)=>{
+    html+=`
+      <div class="item" onclick="detail(${i})">
+        <b>${d.nama}</b><br>
+        NOP: ${d.nop}<br>
+        ${d.alamat}
+      </div>
+    `;
+  });
+
+  hasil.innerHTML=html;
+  window.dataTampil=data;
+}
+
+function detail(i){
+  const d=window.dataTampil[i];
+
+  document.getElementById("popupContent").innerHTML=`
+    <h3>${d.nama}</h3>
+    <p>NOP: ${d.nop}</p>
+    <p>${d.alamat}</p>
+    <p>Luas: ${d.luas}</p>
+    <button onclick="tutup()">Tutup</button>
+  `;
+
+  document.getElementById("popup").style.display="flex";
+}
+
+function tutup(){
+  document.getElementById("popup").style.display="none";
+}
+</script>
+
+<!-- FOOTER -->
+<div class="footer">
+  © <span id="year"></span> Urang Sukabumi Asli. All rights reserved.
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

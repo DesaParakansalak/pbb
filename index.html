@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pelayanan SPPT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style1.css">
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">
+    <img src="logo.png">
+    <span>Urang Sukabumi Asli</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Pelayanan SPPT P2 PBB</h1>
+  <p>
+    Pilih jenis layanan yang ingin diajukan dengan mudah dan cepat di unduh
+  </p>
+</section>
+
+<!-- MENU -->
+<div class="menu-grid">
+  <a href="https://citigov.sukabumikab.co.id/signin" target="_blank" class="card highlight">
+    <div class="icon">💳</div>
+    <h3>Layanan Online</h3>
+    <small>Bayar • Cek • Ajuan</small>
+  </a>
+
+  <a href="mutasi.html" class="card">
+    <div class="icon">📄</div>
+    <h3>Mutasi SPPT</h3>
+  </a>
+
+  <a href="belumakta.html" class="card">
+  <div class="icon">📝</div>
+  <h3>Belum diaktakan</h3>
+</a>
+
+  <a href="baru.html" class="card">
+    <div class="icon">🆕</div>
+    <h3>Ajuan Baru/Tidak terbit</h3>
+  </a>
+
+  <a href="perbaikan.html" class="card">
+    <div class="icon">🛠</div>
+    <h3>Perbaikan SPPT</h3>
+  </a>
+
+  <a href="aktif.html" class="card">
+    <div class="icon">✅</div>
+    <h3>Pengaktifan SPPT</h3>
+  </a>
+
+  <a href="gabung.html" class="card">
+    <div class="icon">🔗</div>
+    <h3>Penggabungan SPPT</h3>
+  </a>
+  <a href="nop.html" class="card">
+  <div class="icon">🔍</div>
+  <h3>Informasi NOP</h3>
+  <small>Cek Nama / NOP</small>
+</a>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>© <span id="year"></span> Urang Sukabumi Asli. All rights reserved.</p>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</div>
+
+<div class="sosmed-wrap">
+
+  <!-- tombol utama -->
+  <div class="sosmed-toggle">
+    <i class="fas fa-share-alt"></i>
+  </div>
+
+  <!-- isi sosmed -->
+  <div class="sosmed-list">
+    <a href="https://youtube.com/@Usa_Channel" target="_blank" class="yt"><i class="fab fa-youtube"></i></a>
+    <a href="https://facebook.com/nsr86fast1" target="_blank" class="fb"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/uinkth4" target="_blank" class="ig"><i class="fab fa-instagram"></i></a>
+    <a href="https://tiktok.com/@urangsukabumiaslichannel" target="_blank" class="tt"><i class="fab fa-tiktok"></i></a>
+  </div>
+
+</div>
+<script>
+  const btn = document.querySelector('.sosmed-toggle');
+  const wrap = document.querySelector('.sosmed-wrap');
+
+  btn.onclick = () => {
+    wrap.classList.toggle('active');
+  };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pelayanan SPPT</title>
+
+  <!-- ICON -->
+  <link rel="icon" href="favicon.png">
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- ICON -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS (cukup 1 saja biar tidak bentrok) -->
+  <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <a href="index.html">🏠 Beranda</a>
+    <a href="mutasi.html">📄 Mutasi SPPT</a>
+    <a href="belumakta.html">📝 Belum diaktakan</a>
+    <a href="baru.html">🆕 Ajuan Baru</a>
+    <a href="perbaikan.html"class="active">🛠 Perbaikan</a>
+    <a href="aktif.html">✅ Pengaktifan</a>
+    <a href="gabung.html">🔗 Penggabungan</a>
+    <a href="nop.html">🔍 Informasi NOP</a>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <div class="logo">
+        <img src="logo.png">
+        <span>Urang Sukabumi Asli</span>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Permohonan Perbaikan Data SPPT</h1>
+    </section>
+
+    <!-- WRAPPER 2 KOLOM -->
+    <div class="grid-2">
+
+      <!-- INFO -->
+      <div class="info-box">
+        <p>
+          Perbaikan SPPT (Surat Pemberitahuan Pajak Terutang) PBB adalah proses membetulkan kesalahan data pada dokumen pajak, seperti nama, alamat, luas tanah/bangunan, atau salah hitung. Ini bertujuan agar data PBB sesuai kondisi sebenarnya.
+        </p>
+
+        <h3>Persyaratan:</h3>
+      </div>
+
+      <!-- LIST -->
+      <div class="list-item">
+      <span>1. Permohonan</span>
+      <a href="file/permohonan.docx" class="btn">Download</a>
+    </div>
+
+    <div class="list-item">
+      <span>2. SPOP / LSPOP</span>
+      <a href="file/spop.pdf" class="btn">Download</a>
+    </div>
+
+    <div class="list-item"><span>3. SPPT Asli Tahun Berjalan</span><span>-</span></div>
+    <div class="list-item"><span>4. Foto Copy KTP Pemilik</span><span>-</span></div>
+    <div class="list-item"><span>5. Foto Copy KK Pemilik</span><span>-</span></div>
+    <div class="list-item"><span>6. Foto Copy Akta/Sertipikat</span><span>-</span></div>
+
+    <div class="list-item">
+      <span>7. Suket Pembetulan</span>
+      <a href="file/pembetulan.docx" class="btn">Download</a>
+    </div>
+
+    <div class="list-item">
+      <span>8. Letter C Desa (Jika Masih Akta)</span>
+      <a href="file/cdesa.xlsx" class="btn">Download</a>
+    </div>
+
+    <div class="list-item">
+      <span>9. Bukti Lunas PBB Sampai Tahun Berjalan</span>
+      <a href="https://citigov.sukabumikab.co.id/signin" class="btn">Akses</a>
+    </div>
+
+    <div class="list-item">
+      <span>10. Surat Kuasa (Jika Dikuasakan)</span>
+      <a href="file/kuasa.docx" class="btn">Download</a>
+    </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+  <p>© <span id="year"></span> Urang Sukabumi Asli. All rights reserved.</p>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</div>
+
+  </main>
+
+</div>
+
+<!-- SOSMED -->
+<div class="sosmed-wrap">
+  <div class="sosmed-toggle">
+    <i class="fas fa-share-alt"></i>
+  </div>
+
+  <div class="sosmed-list">
+    <a href="#" class="yt"><i class="fab fa-youtube"></i></a>
+    <a href="#" class="fb"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="ig"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="tt"><i class="fab fa-tiktok"></i></a>
+  </div>
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const btn = document.querySelector('.sosmed-toggle');
+const wrap = document.querySelector('.sosmed-wrap');
+btn.onclick = () => wrap.classList.toggle('active');
+</script>
+
+</body>
+</html>

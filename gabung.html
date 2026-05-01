@@ -1,0 +1,135 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pelayanan SPPT</title>
+
+  <!-- ICON -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- ICON (Font Awesome) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+  <div class="sosmed-wrap">
+
+  <!-- tombol utama -->
+  <div class="sosmed-toggle">
+    <i class="fas fa-share-alt"></i>
+  </div>
+
+  <!-- isi sosmed -->
+  <div class="sosmed-list">
+    <a href="https://youtube.com/@Usa_Channel" target="_blank" class="yt"><i class="fab fa-youtube"></i></a>
+    <a href="https://facebook.com/nsr86fast1" target="_blank" class="fb"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://instagram.com/uinkth4" target="_blank" class="ig"><i class="fab fa-instagram"></i></a>
+    <a href="https://tiktok.com/@urangsukabumiaslichannel" target="_blank" class="tt"><i class="fab fa-tiktok"></i></a>
+  </div>
+
+</div>
+
+<script>
+  const btn = document.querySelector('.sosmed-toggle');
+  const wrap = document.querySelector('.sosmed-wrap');
+
+  btn.onclick = () => {
+    wrap.classList.toggle('active');
+  };
+</script>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <a href="index.html">🏠 Beranda</a>
+    <a href="mutasi.html">📄 Mutasi SPPT</a>
+    <a href="belumakta.html">📝 Belum diaktakan</a>
+    <a href="baru.html">🆕 Ajuan Baru</a>
+    <a href="perbaikan.html">🛠 Perbaikan</a>
+    <a href="aktif.html">✅ Pengaktifan</a>
+    <a href="gabung.html"class="active">🔗 Penggabungan</a>
+    <a href="nop.html">🔍 Informasi NOP</a>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <div class="logo">
+        <img src="logo.png">
+        <span>Urang Sukabumi Asli</span>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Permohonan Penggabungan SPPT P2 PBB</h1>
+    </section>
+
+    <!-- INFO -->
+    <div class="info-box">
+      <p>
+        Penggabungan SPPT adalah proses menggabungkan beberapa objek pajak (tanah/bangunan)
+        yang terpisah menjadi satu SPPT (Surat Pemberitahuan Pajak Terutang) baru atas satu
+        wajib pajak, deangan catatan semua objek berdekatan/masih dilokasi yang sama
+      </p>
+    </div>
+
+    <!-- LIST -->
+    <div class="menu-list">
+
+      <div class="list-item">
+        <span>1. Permohonan</span>
+        <a href="file/permohonan.docx" class="btn">Download</a>
+      </div>
+
+      <div class="list-item">
+        <span>2. SPOP / LSPOP</span>
+        <a href="file/spop.pdf" class="btn">Download</a>
+      </div>
+
+      <div class="list-item"><span>3. Asli SPPT Semua yang akan digabungkan</span><span>-</span></div>
+      <div class="list-item"><span>4. Foto Copy KTP Pemilik</span><span>-</span></div>
+      <div class="list-item"><span>5. Foto Copy KK Pemilik</span><span>-</span></div>
+      <div class="list-item"><span>6. Foto Copy Akta / Sertipikat semua yang akan digabungkan sesuai nama pemilik di KTP</span><span>-</span></div>
+
+      <div class="list-item">
+        <span>7. Suket Penggabungan</span>
+        <a href="file/penggabungan.docx" class="btn">Download</a>
+      </div>
+
+      <div class="list-item">
+        <span>8. Letter C Desa (Jika masih Akta)</span>
+        <a href="file/cdesa.xlsx" class="btn">Download</a>
+      </div>
+
+      <div class="list-item">
+      <span>9. Bukti Lunas PBB Sampai Tahun Berjalan</span>
+      <a href="https://citigov.sukabumikab.co.id/signin" class="btn">Akses</a>
+    </div>
+
+      <div class="list-item">
+        <span>10. Surat Kuasa (Jika dikuasakan)</span>
+        <a href="file/kuasa.docx" class="btn">Download</a>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+<div class="footer">
+  <p>© <span id="year"></span> Urang Sukabumi Asli. All rights reserved.</p>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</div>
+  </main>
+
+</div>

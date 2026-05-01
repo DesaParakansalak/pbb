@@ -1,0 +1,350 @@
+/* =========================
+   RESET & GLOBAL
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+
+  /* BACKGROUND GAMBAR */
+  background: 
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)),
+    url('bg.jpg');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: #fff;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 15px 25px;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 40px;
+}
+
+.logo span {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  text-align: center;
+  padding: 50px 20px 20px;
+}
+
+.hero h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+/* =========================
+   MENU GRID
+========================= */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* PC: 2 kolom saja */
+  gap: 20px;
+  padding: 30px;
+  max-width: 500px;  /* biar tidak melebar */
+  margin: auto;      /* center ke tengah */
+}
+
+.card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  background: rgba(255,255,255,0.15);
+}
+
+.card .icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 15px;
+}
+
+.card small {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* CARD KHUSUS */
+.card.highlight {
+  background: rgba(255,255,255,0.08);
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* =========================
+   SOSMED FLOAT (KANAN)
+========================= */
+.sosmed-wrap {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 999;
+}
+
+/* tombol utama */
+.sosmed-toggle {
+  width: 55px;
+  height: 55px;
+  background: #00c6ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.sosmed-toggle:hover {
+  transform: rotate(90deg);
+}
+
+/* list sosmed */
+.sosmed-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+
+  opacity: 0;
+  transform: translateX(50px);
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+/* saat aktif */
+.sosmed-wrap.active .sosmed-list {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* icon sosmed */
+.sosmed-list a {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.sosmed-list a:hover {
+  transform: scale(1.1);
+}
+
+/* warna */
+.yt { background: #ff0000; }
+.fb { background: #1877f2; }
+.ig { background: #e1306c; }
+.tt { background: #000; }
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 22px;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* LAYOUT */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 230px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: rgba(255,255,255,0.2);
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* LIST STYLE */
+.menu-list {
+  margin-top: 20px;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(255,255,255,0.08);
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.btn {
+  background: #00c6ff;
+  padding: 5px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .sidebar a {
+    white-space: nowrap;
+  }
+}
+.content {
+  flex: 1;
+  padding: 20px;
+
+  max-width: 900px;   /* BATAS LEBAR */
+  margin: 0 auto;     /* posisi tengah */
+}
+/* ====== UPGRADE CARD (AMAN) ====== */
+.menu-grid .card{
+  transition: all 0.3s ease;
+}
+
+/* hover lebih hidup */
+.menu-grid .card:hover{
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 
+    0 15px 30px rgba(0,0,0,0.4),
+    0 0 20px rgba(0,255,150,0.2);
+}
+
+/* klik */
+.menu-grid .card:active{
+  transform: scale(0.96);
+}
+.menu-grid .card .icon{
+  transition: 0.3s;
+}
+
+.menu-grid .card:hover .icon{
+  transform: scale(1.2) rotate(5deg);
+}
+.menu-grid .card{
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.5s ease forwards;
+}
+
+/* delay biar muncul satu-satu */
+.menu-grid .card:nth-child(1){animation-delay:0.1s;}
+.menu-grid .card:nth-child(2){animation-delay:0.2s;}
+.menu-grid .card:nth-child(3){animation-delay:0.3s;}
+.menu-grid .card:nth-child(4){animation-delay:0.4s;}
+.menu-grid .card:nth-child(5){animation-delay:0.5s;}
+.menu-grid .card:nth-child(6){animation-delay:0.6s;}
+.menu-grid .card:nth-child(7){animation-delay:0.7s;}
+.menu-grid .card:nth-child(8){animation-delay:0.8s;}
+
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+.menu-grid .card:hover{
+  background: rgba(255,255,255,0.18);
+}
